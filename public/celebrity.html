@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="이미지를 올리면 닮은 꼴 연예인을 찾아줍니다.">
+    <meta name="keywords" content="닮은꼴 연예인 찾기">
+    <title>닮은꼴 연예인 찾기</title>
+    <script defer src="./celebrity.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header></header>
+    <main>
+        <section>
+            <form id="uploadImgForm">
+                <div>
+                    <img id="previewImg" alt="업로드 이미지 미리보기"/>
+                </div>
+                <input type="file" id="uploadImg" accept="image/*" />
+                <button id="submitBtn" type="submit">닮은 꼴 연예인 찾기</button>
+            </form>
+        </section>
+    </main>
+    <footer></footer>
+</body>
+</html>
