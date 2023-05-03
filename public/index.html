@@ -9,19 +9,55 @@
     <title>닮은꼴 연예인 찾기</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script defer src="./test.js"></script>
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <script defer src="./condition.js"></script>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <header></header>
     <main>
-        <section>
+        <!-- 시작 page -->
+        <section class="helloSection">
+            <h1>닮은 꼴 찾기</h1>
+            <div class="helloBox">
+                <img id="helloImg" src="https://ilyo.co.kr/contents/article/images/2019/1004/1570150763720629.jpg" alt="시작페이지 이미지" />
+                <button id="goFindBtn" type="button">닮은 꼴 찾기 시작</button>
+            </div>
+        </section>
+
+        <!-- 업로드 page -->
+        <section class="findSection" style="display: none;">
             <form id="uploadImgForm">
                 <div>
                     <img id="previewImg" alt="업로드 이미지 미리보기"/>
                 </div>
+                <label for="uploadImg">
+                    <div class="uploadBtn">파일 업로드</div>
+                </label>
                 <input type="file" id="uploadImg" name="uploadImg" accept="image/*" />
-                <button id="submitBtn" type="submit">닮은 꼴 연예인 찾기</button>
+                <button id="submitBtn" class="goResultBtn" type="submit">닮은 꼴 연예인 찾기</button>
             </form>
+        </section>
+
+        <!-- 결과 page -->
+        <section class="resultSection" style="display: none;">
+            <div class="resultBox">
+                <h1>당신의 닮은 꼴 연예인은 ?!</h1>
+                <div class="resultImgBox">
+                    <img class="resultImgItem" src="https://ilyo.co.kr/contents/article/images/2019/1004/1570150763720629.jpg" alt="닮은 꼴 연에인" />
+                    <img class="resultImgItem celebrityImg" src="https://ilyo.co.kr/contents/article/images/2019/1004/1570150763720629.jpg" alt="닮은 꼴 연에인" />
+                </div>
+                <div class="resultTextBox">
+                    <p>
+                        가장 닮은 꼴 연예인은 <span class="celebrityName">ㅁㅁㅁ</span>입니다.
+                    </p>
+                    <p>
+                        <span class="celebrityName">ㅁㅁㅁ</span> 과 닮은 정도 <span class="percent"></span> %
+                    </p>
+                </div>
+                <div>
+                    <button id="replayBtn" type="button">다시 테스트하기</button>
+                </div>
+            </div>
         </section>
     </main>
     <footer></footer>
