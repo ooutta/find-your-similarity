@@ -1,8 +1,11 @@
+* {
+    font-family: "궁서체";
+}
+
 html, body, main {
     margin: 0;
     padding: 0;
-    height: 100%;
-    /* overflow: hidden; */
+    height: 100vh;
 }
 
 main {
@@ -10,6 +13,13 @@ main {
     flex-direction: column;
     justify-content: center;
     background-image: linear-gradient(100deg, red, orange, yellow, green, blue, indigo, purple);
+}
+
+
+h1 {
+    background-color: aliceblue;
+    font-size: 3.2rem;
+    padding: 5px;
 }
 
 .helloSection,
@@ -29,11 +39,14 @@ main {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-color: #F1F6F9;
+    padding: 1rem;
     box-shadow: 2px 7px 15px 8px rgba(0,0,0,0.3);
     border-radius: 15px;
-    padding: 3rem;
     margin-top: 10px;
+    width: 45%;
+    background-image: url('./images/bonobonoHouse.jpeg');
+    background-repeat : no-repeat;
+    background-size : cover;
 }
 
 #helloImg,
@@ -49,13 +62,14 @@ main {
     margin-top: 3rem;
     padding: 1.5rem;
     cursor: pointer;
-    background-color: #6aafe6;
+    background-color: #3366FF;
     color: #d4dfe6;
     border-radius: 15px;
 
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: bold;
+    font-size: 2rem;
     transition: 0.25s;
 }
 
@@ -150,18 +164,22 @@ main {
     background-color: #F1F6F9;
     box-shadow: 2px 7px 15px 8px rgba(0,0,0,0.3);
     border-radius: 15px;
-    padding: 3rem;
+    width: 85%;
+    height: 100%;
+    padding: 2rem 1rem;
     margin-top: 10px;
 }
 
 .resultImgBox {
     display: flex;
     gap: 1rem;
+    width: 60%;
+    justify-content: center;
 }
 
 .resultImgItem {
-    width: 200px;
-    height: 200px;
+    max-width: 300px;
+    width: auto;
+    height: 300px;
     border-radius: 15px;
 }
-
