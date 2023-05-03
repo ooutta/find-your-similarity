@@ -10,10 +10,14 @@ require('dotenv').config();
 
 const multer = require('multer');
 
-const upload = multer({ dest: 'uploads/' });
-const FormData = require('form-data');
 const { default: axios } = require('axios');
+
+const FormData = require('form-data');
+
+const upload = multer({ dest: 'uploads/' });
+
 const path = require('path');
+const { error } = require('console');
 
 const clientId = process.env.CLIENT_ID;
 const clientSecret = process.env.CLIENT_SECRET;
@@ -27,12 +31,10 @@ app.get('/', (request, response) => {
 
 // 1. 네이버 Clova Face Recognition API 연결
 app.post('/celebrity', upload.single('image'), (request, response) => {
-  const filePath = request.file.path;
-
   const form = new FormData();
   form.append(
     'image',
-    fs.createReadStream(path.join(`${__dirname}/${filePath}`)),
+    fs.createReadStream(path.join(`${__dirname}/${request.file.path}`)),
   );
 
   const url = 'https://openapi.naver.com/v1/vision/celebrity';
@@ -44,16 +46,51 @@ app.post('/celebrity', upload.single('image'), (request, response) => {
       'X-Naver-Client-Secret': clientSecret,
     },
   })
-    .then((res) => {
-      console.log(res.data.faces[0].celebrity.value);
-      console.log(res.data.faces[0].celebrity.confidence);
-
-      return response.json({
-        value: res.data.faces[0].celebrity.value,
-        confidence: res.data.faces[0].celebrity.confidence,
-      });
+    .then(async (res) => {
+      if (response.statusCode === 200) {
+        return response.json({
+          value: res.data.faces[0].celebrity.value,
+          confidence: res.data.faces[0].celebrity.confidence,
+        });
+      }
+      throw error;
     })
-    .catch((error) => console.log(error));
+    .catch((error) => {
+      console.log('########### in error');
+      console.log(error);
+    });
+});
+
+app.post('/image', (request, response) => {
+  const value = JSON.stringify(request.body.body.query);
+  const url = `https://openapi.naver.com/v1/search/image?query=${encodeURI(value)}`;
+
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Naver-Client-Id': clientId,
+      'X-Naver-Client-Secret': clientSecret,
+    },
+    params: {
+      display: 1,
+      sort: 'sim',
+    },
+  };
+
+  axios.get(url, config)
+    .then(async (res) => {
+      if (res.status === 200) {
+        console.log('######## in if');
+        console.log(res.data.items[0].link);
+        return response.json({
+          value: res.data.items[0].link,
+        });
+      }
+    })
+    .catch((error) => {
+      console.log('########### in error');
+      console.log(error);
+    });
 });
 
 const port = 3000;
