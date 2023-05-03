@@ -7,18 +7,19 @@
     <meta name="description" content="이미지를 올리면 닮은 꼴 연예인을 찾아줍니다.">
     <meta name="keywords" content="닮은꼴 연예인 찾기">
     <title>닮은꼴 연예인 찾기</title>
-    <script defer src="celebrity.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer src="./test.js"></script>
+    <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
 <body>
     <header></header>
     <main>
         <section>
-            <form id="uploadImgForm" enctype="multipart/form-data">
+            <form id="uploadImgForm">
                 <div>
                     <img id="previewImg" alt="업로드 이미지 미리보기"/>
                 </div>
-                <input type="file" id="uploadImg" accept="image/*" />
+                <input type="file" id="uploadImg" name="uploadImg" accept="image/*" />
                 <button id="submitBtn" type="submit">닮은 꼴 연예인 찾기</button>
             </form>
         </section>
