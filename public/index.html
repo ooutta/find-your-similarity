@@ -17,9 +17,11 @@
     <main>
         <!-- 시작 page -->
         <section class="helloSection">
-            <h1>닮은 꼴 찾기</h1>
+            <div class="titleBox">
+                <h1>나와 닮은 연예인 찾기</h1>
+            </div>
             <div class="helloBox">
-                <img id="helloImg" src="https://ilyo.co.kr/contents/article/images/2019/1004/1570150763720629.jpg" alt="시작페이지 이미지" />
+                <img id="helloImg" src="./images/bonobono.png" alt="bonobono" />
                 <button id="goFindBtn" type="button">닮은 꼴 찾기 시작</button>
             </div>
         </section>
@@ -28,7 +30,7 @@
         <section class="findSection" style="display: none;">
             <form id="uploadImgForm">
                 <div>
-                    <img id="previewImg" alt="업로드 이미지 미리보기"/>
+                    <img src="./images/bono.png" id="previewImg" alt="업로드 이미지 미리보기" />
                 </div>
                 <label for="uploadImg">
                     <div class="uploadBtn">파일 업로드</div>
@@ -41,17 +43,19 @@
         <!-- 결과 page -->
         <section class="resultSection" style="display: none;">
             <div class="resultBox">
-                <h1>당신의 닮은 꼴 연예인은 ?!</h1>
+                <div class="titleBox">
+                    <h1>당신의 닮은 꼴 연예인은 ?!</h1>
+                </div>
                 <div class="resultImgBox">
-                    <img class="resultImgItem" src="https://ilyo.co.kr/contents/article/images/2019/1004/1570150763720629.jpg" alt="닮은 꼴 연에인" />
-                    <img class="resultImgItem celebrityImg" src="https://ilyo.co.kr/contents/article/images/2019/1004/1570150763720629.jpg" alt="닮은 꼴 연에인" />
+                    <img class="resultImgItem myImg" src="./images/bono.png" alt="닮은 꼴 연에인" />
+                    <img class="resultImgItem celebrityImg" src="./images/bono.png" alt="닮은 꼴 연에인" />
                 </div>
                 <div class="resultTextBox">
                     <p>
                         가장 닮은 꼴 연예인은 <span class="celebrityName">ㅁㅁㅁ</span>입니다.
                     </p>
                     <p>
-                        <span class="celebrityName">ㅁㅁㅁ</span> 과 닮은 정도 <span class="percent"></span> %
+                        <span class="celebrityName"></span> 과 닮은 정도 <span class="percent"></span> %
                     </p>
                 </div>
                 <div>

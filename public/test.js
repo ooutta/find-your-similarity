@@ -2,7 +2,8 @@ const previewImg = document.querySelector('#previewImg');
 const uploadImg = document.querySelector('#uploadImg');
 const submitBtn = document.querySelector('#submitBtn');
 const uploadImgForm = document.querySelector('#uploadImgForm');
-const celebrityImg = document.querySelector('#celebrityImg');
+const celebrityImg = document.querySelector('.celebrityImg');
+const myImg = document.querySelector('.myImg');
 
 let uploadFile;
 let value;
@@ -10,6 +11,7 @@ let value;
 const submitImg = async (e) => {
   const { uploadImg } = e.target;
   // console.log(uploadImg.files[0]);
+  const inputFile = uploadImg.files[0]; //
   const formData = new FormData();
   formData.append('image', uploadImg.files[0]);
 
@@ -34,6 +36,7 @@ const submitImg = async (e) => {
       value = response.data.value;
       console.log(value);
       celebrityImg.src = value;
+      myImg.src = URL.createObjectURL(inputFile);
     })
     .catch((err) => console.log(err));
 };

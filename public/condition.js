@@ -15,7 +15,7 @@ let toggleGoFind = false;
 const changeToggle = (curSection, nextSection) => {
     toggleGoFind = !toggleGoFind;
     curSection.classList.toggle("hide");
-    
+
     if (curSection.classList.contains("hide")) {
         curSection.style.display = "none";
         nextSection.style.display = "flex";
@@ -25,8 +25,17 @@ const changeToggle = (curSection, nextSection) => {
     };
 };
 
+const replayTest = () => {
+    location.reload();
+};
+
 // helloBox classList에 showBox 가 있다면
+// 1
 goFindBtn.addEventListener("click", () => changeToggle(helloSection, findSection));
+
+// 2
 goResultBtn.addEventListener("click", () => changeToggle(findSection, resultSection));
-replayBtn.addEventListener("click", () => changeToggle(resultSection, helloSection));
+
+// 다시 하기 버튼 클릭
+replayBtn.addEventListener("click", () => replayTest());
 
