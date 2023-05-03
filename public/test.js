@@ -1,14 +1,13 @@
-// const { default: axios } = require("axios");
-
 const previewImg = document.querySelector('#previewImg');
 const uploadImg = document.querySelector('#uploadImg');
 const submitBtn = document.querySelector('#submitBtn');
 const uploadImgForm = document.querySelector('#uploadImgForm');
+const celebrityImg = document.querySelector('#celebrityImg');
 
 let uploadFile;
+let value;
 
 const submitImg = async (e) => {
-  e.preventDefault();
   const { uploadImg } = e.target;
   // console.log(uploadImg.files[0]);
   const formData = new FormData();
@@ -16,7 +15,25 @@ const submitImg = async (e) => {
 
   await axios.post('/celebrity', formData)
     .then((response) => {
-      console.log(response.data);
+      celebrity = response.data;
+      console.log(celebrity.value);
+      console.log(celebrity.confidence);
+    })
+    .catch((err) => console.log(err));
+
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: { query: celebrity.value },
+  };
+
+  await axios.post('/image', options)
+    .then((response) => {
+      value = response.data.value;
+      console.log(value);
+      celebrityImg.src = value;
     })
     .catch((err) => console.log(err));
 };
