@@ -1,26 +1,14 @@
+const { setAuthority, createForm, responseData } = require('./function.js');
+
 const express = require('express');
 
 const app = express();
-
-const httpRequest = require('request');
-
-const fs = require('fs');
-
-require('dotenv').config();
 
 const multer = require('multer');
 
 const { default: axios } = require('axios');
 
-const FormData = require('form-data');
-
 const upload = multer({ dest: 'uploads/' });
-
-const path = require('path');
-const { error } = require('console');
-
-const clientId = process.env.CLIENT_ID;
-const clientSecret = process.env.CLIENT_SECRET;
 
 app.use(express.static('public'));
 app.use(express.json());
@@ -29,31 +17,26 @@ app.get('/', (request, response) => {
   response.sendFile('index.html');
 });
 
-// 1. 네이버 Clova Face Recognition API 연결
+/**
+ * 네이버 Clova Face Recognition API 연결
+ */
 app.post('/celebrity', upload.single('image'), (request, response) => {
-  const form = new FormData();
-  form.append(
-    'image',
-    fs.createReadStream(path.join(`${__dirname}/${request.file.path}`)),
-  );
+  const form = createForm(request);
 
   const url = 'https://openapi.naver.com/v1/vision/celebrity';
 
+  // 네이버 CFR에 이미지를 전송하여, 닮은꼴 연예인 이름과 유사도 요청
   axios.post(url, form, {
-    headers: {
+    headers: { // Content-Type, API 인증 정보
       ...form.getHeaders(),
-      'X-Naver-Client-Id': clientId,
-      'X-Naver-Client-Secret': clientSecret,
+      ...setAuthority,
     },
   })
     .then(async (res) => {
       if (response.statusCode === 200) {
-        return response.json({
-          value: res.data.faces[0].celebrity.value,
-          confidence: res.data.faces[0].celebrity.confidence,
-        });
+        // return 유명인 객체 정보 { 객체 유무, 이름, 유사도 }
+        return responseData(response, res);
       }
-      throw error;
     })
     .catch((error) => {
       console.log('########### in error');
@@ -61,15 +44,17 @@ app.post('/celebrity', upload.single('image'), (request, response) => {
     });
 });
 
+/**
+ * 네이버 이미지 검색 API 연결
+ */
 app.post('/image', (request, response) => {
-  const value = JSON.stringify(request.body.body.query);
+  const value = `${JSON.stringify(request.body.body.query)} 최근 얼굴`;
   const url = `https://openapi.naver.com/v1/search/image?query=${encodeURI(value)}`;
 
   const config = {
     headers: {
       'Content-Type': 'application/json',
-      'X-Naver-Client-Id': clientId,
-      'X-Naver-Client-Secret': clientSecret,
+      ...setAuthority,
     },
     params: {
       display: 1,
@@ -77,23 +62,19 @@ app.post('/image', (request, response) => {
     },
   };
 
+  // 네이버 이미지 검색 API에 유명인 이름 전송 후, 유명인 이미지 요청
   axios.get(url, config)
     .then(async (res) => {
       if (res.status === 200) {
-        console.log('######## in if');
-        console.log(res.data.items[0].link);
         return response.json({
           value: res.data.items[0].link,
         });
       }
     })
     .catch((error) => {
-      console.log('########### in error');
       console.log(error);
     });
 });
 
 const port = 3000;
 app.listen(port, () => console.log(`http://127.0.0.1:3000/ app listening on port ${port}`));
-
-// 반환 메시지 중 confidence 속성 값이 가장 높은 value 추출
