@@ -1,14 +1,14 @@
-const helloBox = document.querySelector(".helloBox");
-const findBox = document.querySelector(".findBox");
-const resultBox = document.querySelector(".resultBox");
+const helloBox = document.querySelector('.helloBox');
+const findBox = document.querySelector('.findBox');
+const resultBox = document.querySelector('.resultBox');
 
-const goFindBtn = document.querySelector("#goFindBtn");
-const goResultBtn = document.querySelector(".goResultBtn");
-const replayBtn = document.querySelector("#replayBtn");
+const goFindBtn = document.querySelector('#goFindBtn');
+const goResultBtn = document.querySelector('.goResultBtn');
+const replayBtn = document.querySelector('#replayBtn');
 
-const helloSection = document.querySelector(".helloSection");
-const findSection = document.querySelector(".findSection");
-const resultSection = document.querySelector(".resultSection");
+const helloSection = document.querySelector('.helloSection');
+const findSection = document.querySelector('.findSection');
+const resultSection = document.querySelector('.resultSection');
 
 let toggleGoFind = false;
 
