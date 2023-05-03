@@ -14,19 +14,28 @@ const clientSecret = process.env.CLIENT_SECRET;
 app.use(express.static('public'));
 app.use(express.json());
 
+app.get('/', (request, response) => {
+  response.sendFile('index.html');
+});
+
 // 1. 네이버 Clova Face Recognition API 연결
-app.get('/celebrity', (request, response) => {
+app.post('/celebrity', (request, response) => {
   const url = 'https://openapi.naver.com/v1/vision/celebrity';
+
+  console.log('test ###############');
+  console.log(request.body);
 
   const formData = {
     // image: fs.createReadStream(`${__dirname}\\test.png`),
     image: request.body.image,
+    // image: fs.createReadStream(request.body.image),
   };
 
   const options = {
     url,
     formData,
     headers: {
+      'Content-Type': 'multipart/form-data',
       'X-Naver-Client-Id': clientId,
       'X-Naver-Client-Secret': clientSecret,
     },
@@ -35,7 +44,8 @@ app.get('/celebrity', (request, response) => {
   httpRequest.post(options, (error, httpResponse, body) => {
     if (!error && response.statusCode === 200) {
       const body2 = JSON.parse(body);
-      console.log(body2.faces[0].celebrity.value, body2.faces[0].celebrity.confidence);
+      console.log(body2);
+      // console.log(body2.faces[0].celebrity.value, body2.faces[0].celebrity.confidence);
     } else {
       console.log(error);
     }
@@ -43,7 +53,7 @@ app.get('/celebrity', (request, response) => {
 });
 
 const port = 3000;
-app.listen(port, () => console.log(`http://127.0.0.1:3000/celebrity app listening on port ${port}`));
+app.listen(port, () => console.log(`http://127.0.0.1:3000/ app listening on port ${port}`));
 
 // 2. 임의의 이미지로 기능 테스트
 
