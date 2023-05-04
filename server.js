@@ -1,4 +1,4 @@
-const { setAuthority, createForm, responseData } = require('./function.js');
+const { setAuthority, createForm, responseData } = require('function.js');
 
 const express = require('express');
 
@@ -8,7 +8,7 @@ const multer = require('multer');
 
 const { default: axios } = require('axios');
 
-const upload = multer({ dest: 'uploads/' });
+const upload = multer({ dest: `${__dirname}/uploads/` });
 
 app.use(express.static('public'));
 app.use(express.json());
