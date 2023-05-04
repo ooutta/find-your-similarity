@@ -34,6 +34,8 @@ const requestCelebrity = async (e) => {
         alert('닮은 사람이 없습니다.\n시작 페이지로 이동합니다.');
         location.href = '/';
       } else { // 닮은 사람이 있는 경우
+        console.log('########### in else');
+        console.log(response.data);
         celebrity = response.data;
       }
     })
