@@ -55,8 +55,6 @@ const requestImage = async () => {
   await axios.post('/image', options)
     .then((response) => {
       const { value } = response.data;
-      console.log('####### in index.js image return');
-      console.log(value);
 
       // 기존 이미지를 서버로부터 받아온 유명인 이미지로 교체
       myImg.src = URL.createObjectURL(inputFile);
