@@ -6,19 +6,18 @@ const celebrityImg = document.querySelector('.celebrityImg');
 const myImg = document.querySelector('.myImg');
 const [celebrityName, celebrityName2] = document.getElementsByClassName('celebrityName');
 const percent = document.querySelector('.percent');
-const axios = require('axios');
 
 let uploadFile; // 사용자가 입력한 사진 파일
 let celebrity; // 유명인 정보 { 이름, 유사도 }
-let inputFile;
+// let inputFile;
 
 /**
  * 서버에 사용자가 입력한 이미지 파일을 넘겨주고, 닮은 유명인 정보를 요청하는 함수
  * @param {*} e 이벤트 파라미터
  */
 const requestCelebrity = async (e) => {
-  const { uploadImg } = e.target;
-  inputFile = uploadImg.files[0];
+  // { uploadImg } = e.target;
+  const inputFile = e.target.files[0];
 
   // 사진을 선택하지 않고 닮은 꼴 찾기 버튼을 누른 경우 초기 페이지로 이동
   if (inputFile === undefined) {
