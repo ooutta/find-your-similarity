@@ -12,6 +12,11 @@ const resultSection = document.querySelector('.resultSection');
 
 let toggleGoFind = false;
 
+/**
+ * section 변경해주는 함수
+ * @param {Element} curSection 현재 section
+ * @param {Element} nextSection 다음 section
+ */
 const changeToggle = (curSection, nextSection) => {
     toggleGoFind = !toggleGoFind;
     curSection.classList.toggle("hide");
@@ -29,13 +34,9 @@ const replayTest = () => {
     location.reload();
 };
 
-// helloBox classList에 showBox 가 있다면
-// 1
 goFindBtn.addEventListener("click", () => changeToggle(helloSection, findSection));
 
-// 2
 goResultBtn.addEventListener("click", () => changeToggle(findSection, resultSection));
 
-// 다시 하기 버튼 클릭
 replayBtn.addEventListener("click", () => replayTest());
 
