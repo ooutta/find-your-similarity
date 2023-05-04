@@ -14,7 +14,7 @@ app.use(express.static('public'));
 app.use(express.json());
 
 app.get('/', (request, response) => {
-  response.sendFile('index.html');
+  response.sendFile(`${__dirname}/index.html`);
 });
 
 /**
