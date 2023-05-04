@@ -8,9 +8,9 @@
     <meta name="keywords" content="닮은꼴 연예인 찾기">
     <title>닮은꼴 연예인 찾기</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script defer src="/index.js"></script>
-    <script defer src="/condition.js"></script>
-    <link rel="stylesheet" href="/index.css">
+    <script defer src="/public/index.js"></script>
+    <script defer src="/public/condition.js"></script>
+    <link rel="stylesheet" href="/public/index.css">
 </head>
 <body>
     <header></header>
@@ -21,7 +21,7 @@
                 <h1>나와 닮은 연예인 찾기</h1>
             </div>
             <div class="helloBox">
-                <img id="helloImg" src="/images/bonobono.jpeg" alt="bonobono" />
+                <img id="helloImg" src="/public/images/bonobono.jpeg" alt="bonobono" />
                 <button id="goFindBtn" type="button">닮은 꼴 찾기 시작</button>
             </div>
         </section>
@@ -30,7 +30,7 @@
         <section class="findSection" style="display: none;">
             <form id="uploadImgForm">
                 <div>
-                    <img src="/images/bono.jpeg" id="previewImg" alt="업로드 이미지 미리보기" />
+                    <img src="/public/images/bono.jpeg" id="previewImg" alt="업로드 이미지 미리보기" />
                 </div>
                 <label for="uploadImg">
                     <div class="uploadBtn">파일 업로드</div>
@@ -47,8 +47,8 @@
                     <h1>당신의 닮은 꼴 연예인은 ?!</h1>
                 </div>
                 <div class="resultImgBox">
-                    <img class="resultImgItem myImg" src="/images/bono.jpeg" alt="닮은 꼴 연에인" />
-                    <img class="resultImgItem celebrityImg" src="/images/bono.jpeg" alt="닮은 꼴 연에인" />
+                    <img class="resultImgItem myImg" src="/public/images/bono.jpeg" alt="닮은 꼴 연에인" />
+                    <img class="resultImgItem celebrityImg" src="/public/images/bono.jpeg" alt="닮은 꼴 연에인" />
                 </div>
                 <div class="resultTextBox">
                     <p>
