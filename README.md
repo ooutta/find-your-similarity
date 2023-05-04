@@ -54,9 +54,9 @@
 
 ## ✉️ 프로젝트 폴더 구조
 ### 
-<div>
+<div align=left>
   <pre><code>
-    find-your-similarity
+  find-your-similarity
   ├─ .github
   ├─ .eslintrc.json
   ├─ .gitignore
