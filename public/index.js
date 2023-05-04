@@ -6,6 +6,7 @@ const celebrityImg = document.querySelector('.celebrityImg');
 const myImg = document.querySelector('.myImg');
 const [celebrityName, celebrityName2] = document.getElementsByClassName('celebrityName');
 const percent = document.querySelector('.percent');
+const axios = require('axios');
 
 let uploadFile; // 사용자가 입력한 사진 파일
 let celebrity; // 유명인 정보 { 이름, 유사도 }
