@@ -54,6 +54,27 @@
 
 ## ✉️ 프로젝트 폴더 구조
 ### 
+<div>
+  <pre><code>
+    find-your-similarity
+  ├─ .github
+  ├─ .eslintrc.json
+  ├─ .gitignore
+  ├─ .README.md
+  ├─ function.js
+  ├─ index.html
+  ├─ public
+  │  └─ src
+  │     ├─ images
+  │     │  ├─ bono.jpeg
+  │     │  ├─ bonobono.jpeg
+  │     │  └─ bonobonoHouse.jpeg
+  │     ├─ condition.js
+  │     ├─ index.css
+  │     └─ index.js
+  └─ server.js
+  </code></pre>
+</div>
 
 <br /><br />
 
