@@ -48,7 +48,7 @@ app.post('/celebrity', upload.single('image'), (request, response) => {
  * 네이버 이미지 검색 API 연결
  */
 app.post('/image', (request, response) => {
-  const value = `${JSON.stringify(request.body.body.query)} 최근 얼굴`;
+  const value = `${JSON.stringify(request.body.body.query)}`;
   const url = `https://openapi.naver.com/v1/search/image?query=${encodeURI(value)}`;
 
   const config = {
@@ -65,11 +65,17 @@ app.post('/image', (request, response) => {
   // 네이버 이미지 검색 API에 유명인 이름 전송 후, 유명인 이미지 요청
   axios.get(url, config)
     .then(async (res) => {
-      if (res.status === 200) {
-        return response.json({
-          value: res.data.items[0].link,
-        });
+      let value;
+      try {
+        if (res.status === 200) {
+          value = res.data.items[0].link;
+        }
+      } catch (error) {
+        console.log(error);
+        value = false;
       }
+
+      return response.json({ value });
     })
     .catch((error) => {
       console.log(error);
