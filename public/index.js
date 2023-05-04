@@ -11,8 +11,6 @@ let uploadFile; // 사용자가 입력한 사진 파일
 let celebrity; // 유명인 정보 { 이름, 유사도 }
 let inputFile;
 
-const { default: axios } = require('axios');
-
 /**
  * 서버에 사용자가 입력한 이미지 파일을 넘겨주고, 닮은 유명인 정보를 요청하는 함수
  * @param {*} e 이벤트 파라미터
