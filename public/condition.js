@@ -34,8 +34,8 @@ const replayTest = () => {
   location.reload();
 };
 
-goFindBtn.addEventListener("click", () => changeToggle(helloSection, findSection));
+goFindBtn.addEventListener('click', () => changeToggle(helloSection, findSection));
 
-goResultBtn.addEventListener("click", () => changeToggle(findSection, resultSection));
+goResultBtn.addEventListener('click', () => changeToggle(findSection, resultSection));
 
-replayBtn.addEventListener("click", () => replayTest());
+replayBtn.addEventListener('click', () => replayTest());
