@@ -5,8 +5,10 @@ const FormData = require('form-data');
 
 require('dotenv').config();
 
-const clientId = process.env.CLIENT_ID;
-const clientSecret = process.env.CLIENT_SECRET;
+const clientId = 'tkZCFADgEuB6Ebg7YjWl';
+const clientSecret = 'WBYrqk3u__';
+// const clientId = process.env.CLIENT_ID;
+// const clientSecret = process.env.CLIENT_SECRET;
 
 /**
  * 네이버 API 접근 권한 부여
