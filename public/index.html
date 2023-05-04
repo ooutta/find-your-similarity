@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="이미지를 올리면 닮은 꼴 연예인을 찾아줍니다.">
+    <meta name="keywords" content="닮은꼴 연예인 찾기">
+    <title>닮은꼴 연예인 찾기</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer src="./index.js"></script>
+    <script defer src="./condition.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header></header>
+    <main>
+        <!-- 시작 page -->
+        <section class="helloSection">
+            <div class="titleBox">
+                <h1>나와 닮은 연예인 찾기</h1>
+            </div>
+            <div class="helloBox">
+                <img id="helloImg" src="./images/bonobono.jpeg" alt="bonobono" />
+                <button id="goFindBtn" type="button">닮은 꼴 찾기 시작</button>
+            </div>
+        </section>
+
+        <!-- 업로드 page -->
+        <section class="findSection" style="display: none;">
+            <form id="uploadImgForm">
+                <div>
+                    <img src="./images/bono.jpeg" id="previewImg" alt="업로드 이미지 미리보기" />
+                </div>
+                <label for="uploadImg">
+                    <div class="uploadBtn">파일 업로드</div>
+                </label>
+                <input type="file" id="uploadImg" name="uploadImg" accept="image/*" />
+                <button id="submitBtn" class="goResultBtn" type="submit">닮은 꼴 연예인 찾기</button>
+            </form>
+        </section>
+
+        <!-- 결과 page -->
+        <section class="resultSection" style="display: none;">
+            <div class="resultBox">
+                <div class="titleBox">
+                    <h1>당신의 닮은 꼴 연예인은 ?!</h1>
+                </div>
+                <div class="resultImgBox">
+                    <img class="resultImgItem myImg" src="./images/bono.jpeg" alt="닮은 꼴 연에인" />
+                    <img class="resultImgItem celebrityImg" src="./images/bono.jpeg" alt="닮은 꼴 연에인" />
+                </div>
+                <div class="resultTextBox">
+                    <p>
+                        가장 닮은 꼴 연예인은 <span class="celebrityName"></span>입니다.
+                    </p>
+                    <p>
+                        <span class="celebrityName"></span> 과 닮은 정도 <span class="percent"></span> %
+                    </p>
+                </div>
+                <div>
+                    <button id="replayBtn" type="button">다시 테스트하기</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer></footer>
+</body>
+</html>
