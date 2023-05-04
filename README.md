@@ -80,6 +80,26 @@
 
 ## ⚙️ Dependencies
 
+<div align=left>
+  <pre><code>
+  "dependencies": {
+    "axios": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "multer": "^1.4.5-lts.1",
+    "path": "^0.12.7",
+    "request": "^2.88.2"
+  },
+  
+  "devDependencies": {
+    "eslint": "^8.39.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5"
+  }
+  </code></pre>
+</div>
+
 
 <br /><br />
 
