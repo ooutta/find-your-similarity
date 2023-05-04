@@ -18,8 +18,6 @@ let inputFile;
 const requestCelebrity = async (e) => {
   const { uploadImg } = e.target;
   inputFile = uploadImg.files[0];
-  console.log('############ ');
-  console.log(inputFile);
 
   // 사진을 선택하지 않고 닮은 꼴 찾기 버튼을 누른 경우 초기 페이지로 이동
   if (inputFile === undefined) {
@@ -31,7 +29,13 @@ const requestCelebrity = async (e) => {
 
   await axios.post('/celebrity', formData)
     .then((response) => {
-      celebrity = response.data;
+      // 닮은 사람이 없는 경우
+      if (response.data.status === false) {
+        alert('닮은 사람이 없습니다.\n시작 페이지로 이동합니다.');
+        location.href = '/';
+      } else { // 닮은 사람이 있는 경우
+        celebrity = response.data;
+      }
     })
     .catch((err) => console.log(err));
 };
