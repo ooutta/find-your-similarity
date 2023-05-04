@@ -94,7 +94,7 @@ ___
 <br />
 
 * Response Syntax  
-<img width="80%" src="https://user-images.githubusercontent.com/59864345/236083007-64b8c330-baa9-4c1b-b16e-57bb0f6c84cd.png"/>
+<img width="50%" src="https://user-images.githubusercontent.com/59864345/236083007-64b8c330-baa9-4c1b-b16e-57bb0f6c84cd.png"/>
 
 <br /><br />
 
@@ -125,6 +125,7 @@ API를 호출할 때는 검색어와 검색 조건을 Query String  형식의 �
 ### 📌 Commit Convention
 * FEAT : 새로운 기능 추가
 * FIX : 버그 수정
+* CHORE : 짜잘한 수정
 * INIT : 초기 설정
 * REFACTOR : 코드 리펙토링
 * DOCS : 문서 수정
