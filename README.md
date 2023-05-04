@@ -229,8 +229,9 @@ API를 호출할 때는 검색어와 검색 조건을 Query String  형식의 �
   - 이미지 업로드 
 
 * back
-  - CFR API 
-  - 이미지 검색
+  - CFR API 연동
+  - 이미지 검색 API 연동
+  - 기능 모듈화
   
 
 <br /><br />
