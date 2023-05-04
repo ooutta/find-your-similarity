@@ -29,6 +29,8 @@ const requestCelebrity = async (e) => {
 
   await axios.post('/celebrity', formData)
     .then((response) => {
+      console.log('######## 로그 확인');
+      console.log(response.data);
       // 닮은 사람이 없는 경우
       if (response.data.status === false) {
         alert('닮은 사람이 없습니다.\n시작 페이지로 이동합니다.');
