@@ -13,6 +13,8 @@
 
 
 ## 👀 서비스 소개
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/93786956/236115804-a09e693b-18c4-4fc6-9a60-3a0c8e1edd7b.gif)
+
 `홈`, `업로드`, `결과` 총 3개의 section으로 구성되어 있으며<br />
 사진을 업로드하면, NAVER CFR API(유명인 얼굴 인식 API)로 닮은 유명인을 알려주고,<br />
 해당 유명인을 NAVER 검색 API 이미지 검색을 통해 유명인 사진을 보여주는 서비스 입니다.<br />
